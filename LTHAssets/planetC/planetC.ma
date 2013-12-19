@@ -1,6 +1,6 @@
 //Maya ASCII 2013 scene
 //Name: planetC.ma
-//Last modified: Thu, Dec 19, 2013 12:43:14 PM
+//Last modified: Thu, Dec 19, 2013 01:40:16 PM
 //Codeset: 1252
 requires maya "2013";
 currentUnit -l meter -a degree -t film;
@@ -77,8 +77,8 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 createNode transform -n "planetC";
-	setAttr ".rp" -type "double3" 0 -0.45 0 ;
-	setAttr ".sp" -type "double3" 0 -0.45 0 ;
+	setAttr ".rp" -type "double3" -1.9073486328125e-008 0 -3.8146972656250001e-008 ;
+	setAttr ".sp" -type "double3" -1.9073486328125e-008 0 -3.8146972656250001e-008 ;
 createNode mesh -n "planetCShape" -p "planetC";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -126,8 +126,8 @@ createNode mesh -n "planetCShape" -p "planetC";
 		 -0.13225175 -0.13905764 -0.40702885 -0.34623948 -0.13905764 -0.25155765 -0.42797548 -0.13905764 2.5509323e-008
 		 -0.34623945 -0.13905764 0.25155771 -0.13225168 -0.13905764 0.40702885 0.13225169 -0.13905764 0.40702879
 		 0.34623939 -0.13905764 0.25155765 0.42797542 -0.13905764 0 0.36405769 0 -0.26450345
-		 0.13905762 0 -0.42797554 -0.13905773 0 -0.42797548 -0.36405772 0 -0.26450336 -0.45000005 0 2.6822089e-008
-		 -0.36405769 0 0.26450342 -0.13905764 0 0.42797548 0.13905767 0 0.42797542 0.36405766 0 0.26450336
+		 0.13905762 0 -0.42797554 -0.13905773 0 -0.42797548 -0.36405772 0 -0.26450336 -0.45000005 0 2.6822088e-008
+		 -0.36405769 0 0.26450342 -0.13905764 0 0.42797548 0.13905768 0 0.42797542 0.36405766 0 0.26450336
 		 0.44999999 0 0 0.34623945 0.13905764 -0.25155771 0.13225165 0.13905764 -0.40702891
 		 -0.13225175 0.13905764 -0.40702885 -0.34623948 0.13905764 -0.25155765 -0.42797548 0.13905764 2.5509323e-008
 		 -0.34623945 0.13905764 0.25155771 -0.13225168 0.13905764 0.40702885 0.13225169 0.13905764 0.40702879
@@ -467,6 +467,8 @@ select -ne :hardwareRenderGlobals;
 select -ne :defaultHardwareRenderGlobals;
 	setAttr ".fn" -type "string" "im";
 	setAttr ".res" -type "string" "ntsc_4d 646 485 1.333";
+select -ne :ikSystem;
+	setAttr -s 4 ".sol";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
